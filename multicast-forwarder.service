@@ -1,0 +1,19 @@
+# cp multicast-forwarder.service /etc/systemd/system/
+# systemctl daemon-reload
+# systemctl enable multicast-forwarder.service
+# systemctl start multicast-forwarder.service
+
+[Unit]
+Description=Multicast UDP Forwarder Service
+After=network.target
+
+[Service]
+Type=simple
+User=anders
+WorkingDirectory=/home/anders/git/scripts
+ExecStart=/usr/bin/python3 /home/anders/git/scripts/mcast_forwarder.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

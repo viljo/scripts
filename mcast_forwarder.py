@@ -30,7 +30,7 @@ def main():
         try:
             # Receive packet data.
             data, addr = recv_sock.recvfrom(65535)
-            print(f"Received {len(data)} bytes from {addr}. Forwarding to {DEST_HOST}:{DEST_PORT}")
+            #print(f"Received {len(data)} bytes from {addr}. Forwarding to {DEST_HOST}:{DEST_PORT}")
             
             # Forward the received packet to the destination.
             send_sock.sendto(data, (DEST_HOST, DEST_PORT))
